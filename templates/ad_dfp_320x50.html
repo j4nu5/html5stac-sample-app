@@ -1,0 +1,29 @@
+<!-- this goes in <head>  -->
+<script type='text/javascript'>
+    (function() {
+    var useSSL = 'https:' == document.location.protocol;
+    var src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt_mobile.js';
+    document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+    })();
+</script>
+
+<script type='text/javascript'>
+    googletag.cmd.push(function() {
+    // a new block to be added for each ad unit
+    {{#if dfpAdUnitId }}
+        googletag.defineSlot('/{{ dfpNetworkId }}/{{ dfpAdUnitId }}', [320, 50], 'div-gpt-{{ adslotName }}').addService(googletag.pubads());
+    {{/if}}
+
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+    });
+</script>
+<!-- this goes in </head>  -->
+
+<div class="ad-dfp adslot">
+    <div id='div-gpt-{{ adslotName }}'>
+        <script type='text/javascript'>
+            googletag.cmd.push(function() { googletag.display('div-gpt-{{ adslotName }}')});
+        </script>
+    </div>
+</div>

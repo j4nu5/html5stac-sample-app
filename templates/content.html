@@ -1,0 +1,29 @@
+<div class="bordered-content">
+    <div class="article">
+        <h2 class="article-title">{{ title }}</h2>
+        <div class="article-meta">
+            <div class="article-byline">{{ byline }}</div>
+            {{#if updated }}
+            <strong>Updated : </strong>
+            <span class="article-published">{{ updated }}</span>
+            {{/if}}
+            {{#if author }}
+            <strong>Author : </strong>
+            <span class="article-author">{{ author }}</span>
+            {{/if}}
+        </div>
+        {{#if media.videos.origSrc}}
+            <div class="article-video">
+                <div class="flex-video">
+                    <iframe width="560" height="315" src="{{ this.media.videos.origSrc }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        {{/if}}
+
+        {{#unless media.videos.origSrc}}
+            <div class="article-content">
+                <div class="content">{{{ body.full }}}</div>
+            </div>
+        {{/unless}}
+    </div>
+</div>

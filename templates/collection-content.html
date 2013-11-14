@@ -1,0 +1,13 @@
+<section>
+    {{#unless this }}<div style="text-align: center;"><img src="/images/spinner.gif"/></div>{{/unless}}
+    <h4><a href="{{ this.url }} ">{{{ this.title }}}</a></h4>
+    <img src="{{ this.media.images.0.origSrc }}" alt="{{ this.media.images.0.altText }}" />
+    <div class="meta">
+        {{#if this.updated }}<strong>Updated : </strong><span>{{ this.updated }} </span>{{/if}}
+        {{#if this.author }}<strong>Author : </strong><span>{{ this.author }}</span>{{/if}}
+    </div>
+    <div class="summary">
+        {{{ this.summary }}}
+    </div>
+    <a href="{{ this.url }}" class="btn btn-default">Continue reading</a>
+</section>

@@ -4,14 +4,7 @@ CACHE:
 http://demo.mobstacapp.com/css/style.css
 http://cdn.html5stac.com/css/bootstrap-3.0.2.min.css
 http://demo.mobstacapp.com/js/test.js
-http://cdn.html5stac.com/js/jquery-2.0.3.min.js
-http://cdn.html5stac.com/js/underscore-1.5.2.min.js
-http://cdn.html5stac.com/js/backbone-1.1.0.min.js
-http://cdn.html5stac.com/js/handlebars-v1.1.2.js
-http://cdn.html5stac.com/js/jquery.touchstac-1.0.js
-http://cdn.html5stac.com/js/mobstac_core-1.0.js
-http://cdn.html5stac.com/js/jquery.masonry-3.1.2.min.js
-http://cdn.html5stac.com/js/bootstrap-3.0.2.min.js
+http://cdn.html5stac.com/js/html5stac-1.15-min.js
 http://demo.mobstacapp.com/images/spinner.gif
 http://demo.mobstacapp.com/fonts/museosans-300-webfont.ttf
 http://demo.mobstacapp.com/fonts/museosans-300-webfont.svg#museo_sans300

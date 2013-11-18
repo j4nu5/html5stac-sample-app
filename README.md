@@ -18,24 +18,13 @@ To get started with HTML5stac, sign up at [http://developer.mobstac.com](http://
 
 # Creating a Sandbox
 
-This tutorial guides you through the sets of steps needed to create a Sandbox environment with Mobstac. The tutorial assumes that you have already signed up with [Mobstac For Developers](http://developer.mobstac.com). Once you have the sandbox environment ready, you can make full use of the variety of features offered by HTML5stac.
+This tutorial guides you through the steps needed to create a Sandbox environment with Mobstac. The tutorial assumes that you have already signed up with [Mobstac For Developers](http://developer.mobstac.com). Once you have the sandbox environment ready, you can make full use of the variety of features offered by HTML5stac.
 
 ## Fork Demo App
 
-It's always helpful to start with an example while getting familiar with a new framework. To help with that we have a demo app available for you to start with. To use the Demo App, you can fork the repository on [GitHub](http://github.com/MobStac/HTML5StacDemo/).
+It's always helpful to start with an example to get familiar with a new framework. We have a demo app available for you to play with at <http://demo.mobstacapp.com>. To modify the Demo App, you can fork the repository at [GitHub](http://github.com/MobStac/HTML5StacDemo/).
 
-Once you have created a fork of the demo app, please add the fork information to the Demo App already created for you at&nbsp;
+## Deploy Fork to Server
 
-## Get Authentication Token
+To deploy your fork to Mobstac server, hit the Deploy button during Signup and it will get deployed. For future deployments, please refer to API Console Tutorial (coming soon).
 
-Since HTML5stac relies exclusively on [Mobstac API](https://apiv2.mobstac.com/api/2.0/)&nbsp;for content interaction, deployment and authentication, you'll need to get Authentication Token before you can use any of these features. To get the authentication token, please visit [https://apiv2.mobstac.com/api/2.0/users/](https://apiv2.mobstac.com/api/2.0/users/) and get the token from the response provided in the console.
-
-**Please do not share the token with anyone. API treats token authenticated requests the same as username/password authenticated requests.**
-
-## Deploy App to Server
-
-To deploy the App to Mobstac, make a POST request to Mobstac API using following curl command:
-
-    curl -X POST -H "Authorization: Token auth_token" https://apiv2.mobstac.com/api/2.0/accounts/account_id/properties/property_id/apps/app_id/sync-repo/
-
-We'll cover more on the individual variables mentioned here later. In case you don't know what the individual variables are for your use, you may find that out by exploring the API using [API Console](https://apiv2.mobstac.com/api/2.0/).

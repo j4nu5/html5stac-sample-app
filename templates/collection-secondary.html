@@ -1,13 +1,13 @@
 <div class="col-lg-4 col-md-4">
     <div class="secondary-block">
-        <h4><a href="{{ this.url }} ">{{{ this.title }}}</a></h4>
+        <h4><a href="{{ this.url }} ">{{{ this.self.title }}}</a></h4>
 
         <div class="img">
-            {{ mcimg this.media.images.0.origSrc 300 300 this.media.images.0.altText }}
+            {{ mcimg this.self.media.images.0.origSrc 300 300 this.self.media.images.0.altText }}
         </div>
 
         <div class="summary">
-            {{{ this.summary }}}
+            {{{ this.self.summary }}}
         </div>
         <a href="{{ this.url }}" class="btn btn-default">Continue reading</a>
     </div>

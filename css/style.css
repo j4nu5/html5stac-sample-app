@@ -130,20 +130,21 @@ body #main-content .primary-collection .summary {
   margin-bottom: 12px;
 }
 /* line 134, ../scss/style.scss */
-body #collection3-20-0 .video-item {
+body .videos-listing .video-item {
   border: 1px solid #D9E0E2;
   border-bottom: 3px solid #D9E0E2;
   background: #ffffff;
   margin-bottom: 16px;
   margin-right: 10px;
   float: left;
+  min-height: 422px;
 }
 /* line 142, ../scss/style.scss */
-body #collection3-20-0 .video-item h4 {
+body .videos-listing .video-item h4 {
   padding: 0px 8px;
 }
 /* line 146, ../scss/style.scss */
-body #collection3-20-0 .video-item .summary {
+body .videos-listing .video-item .summary {
   padding: 0px 8px 12px 8px;
 }
 /* line 152, ../scss/style.scss */

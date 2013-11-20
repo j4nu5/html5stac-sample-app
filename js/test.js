@@ -188,7 +188,8 @@ var CollectionView = Backbone.View.extend({
                     collection: this.collection.get(displayMeta.source).contentItems,
                     template: displayMeta.type,
                     limit: displayMeta.limit,
-                    offset: displayMeta.offset
+                    offset: displayMeta.offset,
+                    name: MobStac.collections.get(displayMeta.source).attributes.name
                 });
                 contentView.render();
             }
@@ -252,12 +253,16 @@ var CollectionContentView = Backbone.View.extend({
         else {
             this.template = Handlebars.compile( MobStac.Utils.getTemplate("collection-content") );
         }
+        this.name = options.name;
     },
 
     render: function() {
         $(this.el).html("");
         for (var i=this.offset; i < this.collection.length && i<this.limit + this.offset; i++) {
-            $(this.el).append( this.template( this.collection.at(i).attributes ));
+            $(this.el).append( this.template({
+                self: this.collection.at(i).attributes, 
+                name: this.name
+            }));
             //this.collection.at(i).fetch();
         }
         return this;

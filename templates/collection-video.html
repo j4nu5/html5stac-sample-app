@@ -1,9 +1,9 @@
 <div class="video-item">
-    <h4><a href="{{ this.url }} ">{{{ this.title }}}</a></h4>
+    <h4><a href="{{ this.self.url }} ">{{{ this.self.title }}}</a></h4>
     <div class="flex-video">
-        <iframe width="560" height="315" src="{{ this.media.videos.origSrc }}" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="{{ this.self.media.videos.origSrc }}" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="summary">
-        {{{ this.summary }}}
+        {{{ this.self.summary }}}
     </div>
 </div>

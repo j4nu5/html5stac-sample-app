@@ -1,12 +1,12 @@
 <section>
-    <h4><a href="{{ this.url }} ">{{{ this.title }}}</a></h4>
-    <img src="{{ this.media.images.0.origSrc }}" alt="{{ this.media.images.0.altText }}" />
+    <h4><a href="{{ this.self.url }} ">{{{ this.self.title }}}</a></h4>
+    <img src="{{ this.self.media.images.0.origSrc }}" alt="{{ this.self.media.images.0.altText }}" />
     <div class="meta">
-        {{#if this.updated }}<strong>Updated : </strong><span>{{ this.updated }} </span>{{/if}}
-        {{#if this.author }}<strong>Author : </strong><span>{{ this.author }}</span>{{/if}}
+        {{#if this.self.updated }}<strong>Updated : </strong><span>{{ this.self.updated }} </span>{{/if}}
+        {{#if this.self.author }}<strong>Author : </strong><span>{{ this.self.author }}</span>{{/if}}
     </div>
     <div class="summary">
-        {{{ this.summary }}}
+        {{{ this.self.summary }}}
     </div>
-    <a href="{{ this.url }}" class="btn btn-default">Continue reading</a>
+    <a href="{{ this.self.url }}" class="btn btn-default">Continue reading</a>
 </section>

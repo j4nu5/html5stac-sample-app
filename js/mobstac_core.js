@@ -61,7 +61,620 @@ MobStac.Config= {
     ApiToken: 'c60834609e506f32760ae0f68f962e393ea5d880',
     Environment: 'QA'
 };
+
+
+/**
+ * MobStac User holds the information of a single user in itself. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.User
+ */
+MobStac.User = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.User
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
     
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.User
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/users/";
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.User
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac AccountProfile holds the meta information relating the user to an account. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.AccountProfile
+ */
+MobStac.AccountProfile = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.AccountProfile
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.AccountProfile
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + '/profiles/';
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.AccountProfile
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac PropertyProfile holds the meta information linking a user to a property. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.PropertyProfile
+ */
+MobStac.PropertyProfile = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.PropertyProfile
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.PropertyProfile
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/properties/" + MobStac.Config.PropertyId + '/profiles/';
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.PropertyProfile
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac Account represents an account in the system. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.Account
+ */
+MobStac.Account = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.Account
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.Account
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/";
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.Account
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac Property represents a property in the system. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.Property
+ */
+MobStac.Property = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.Property
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.Property
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/properties/";
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.Property
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac DataFile handles file uploads. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.DataFile
+ */
+MobStac.DataFile = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.DataFile
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.DataFile
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/properties/" + MobStac.Config.PropertyId + '/datafiles/';
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.DataFile
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac Feed holds the information of a feed (data source) in the system. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.Feed
+ */
+MobStac.Feed = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.Feed
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.Feed
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/properties/" + MobStac.Config.PropertyId + '/feeds/';
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.Feed
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac App holds the information of an app. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.App
+ */
+MobStac.App = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.App
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.App
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/properties/" + MobStac.Config.PropertyId + '/apps/';
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.App
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac AccountPermissions holds the permission information for an account. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.AccountPermissions
+ */
+MobStac.AccountPermissions = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.AccountPermissions
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.AccountPermissions
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/permissions/";
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.AccountPermissions
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac PropertyPermissions holds the permission information for a property. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.PropertyPermissions
+ */
+MobStac.PropertyPermissions = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.PropertyPermissions
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.PropertyPermissions
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/properties/" + MobStac.Config.PropertyId + '/permissions/';
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.PropertyPermissions
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac AppPermissions holds the permission information for an app. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.AppPermissions
+ */
+MobStac.AppPermissions = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.AppPermissions
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.AppPermissions
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/properties/" + MobStac.Config.PropertyId + "/apps/" + MobStac.Config.AppId + '/permissions/';
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.AppPermissions
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
+/**
+ * MobStac Tag holds the information for a Tag. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
+ * @kind class
+ * @name MobStac.Tag
+ */
+MobStac.Tag = Backbone.Model.extend({
+    /**
+     * Overridden url method to customize requests sent as well as to allow search.
+     * @private
+     * @method
+     * @name url
+     * @memberOf MobStac.Tag
+     * @instance
+     */
+    url: function() {
+        return this.urlRoot() + (this.id ? (this.id + "/") : "");
+    },
+    
+    /**
+     * Overridden urlRoot method to point to MobStac API.
+     * @method
+     * @private
+     * @name urlRoot
+     * @memberOf MobStac.Tag
+     * @instance
+     */
+    urlRoot: function() {
+        return "https://apiv2." + ((MobStac.Config.Environment == "prod")? "" : "qa.") + "mobstac.com/api/2.0/accounts/" + MobStac.Config.AccountId + "/properties/" + MobStac.Config.PropertyId + '/tags/';
+    },
+
+    /**
+     * Overridden fetch method to add custom headers and modify request parameters for MobStac API.
+     * @param {object} options Options object for Backbone's call to fetch.
+     * @private
+     * @method
+     * @name fetch
+     * @memberOf MobStac.Tag
+     * @instance
+     */
+    fetch: function(options) {
+        if (options === undefined) {
+            options = {};
+        }
+        options['headers'] = {
+            'Authorization': 'Token ' + MobStac.Config.ApiToken
+        };
+        return Backbone.Model.prototype.fetch.call(this, options);
+    }
+});
+
+
 /**
  * MobStac ContentItem holds the information of a single content item in itself. This is an extension of {@link http://backbonejs.org/#Model|BackBone Model} configured to use MobStac Backend.
  * {@link MobStac.ContentItems} is the {@link http://backbonejs.org/#Collection|Backbone Collection} to access a collection containing this object.

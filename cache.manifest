@@ -1,9 +1,8 @@
 CACHE MANIFEST
-#v1.0
+#v2.0
 CACHE:
 http://demo.mobstacapp.com/css/style.css
 http://cdn.html5stac.com/css/bootstrap-3.0.2.min.css
-http://cdn.html5stac.com/js/html5stac-2.0-rc-1.min.js
 http://demo.mobstacapp.com/images/spinner.gif
 http://demo.mobstacapp.com/fonts/museosans-300-webfont.ttf
 http://demo.mobstacapp.com/fonts/museosans-300-webfont.svg#museo_sans300

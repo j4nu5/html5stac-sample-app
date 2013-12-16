@@ -3,8 +3,7 @@ CACHE MANIFEST
 CACHE:
 http://demo.mobstacapp.com/css/style.css
 http://cdn.html5stac.com/css/bootstrap-3.0.2.min.css
-http://demo.mobstacapp.com/js/test.js
-http://cdn.html5stac.com/js/html5stac-1.0.3.min.js
+http://cdn.html5stac.com/js/html5stac-2.0-rc-1.min.js
 http://demo.mobstacapp.com/images/spinner.gif
 http://demo.mobstacapp.com/fonts/museosans-300-webfont.ttf
 http://demo.mobstacapp.com/fonts/museosans-300-webfont.svg#museo_sans300
